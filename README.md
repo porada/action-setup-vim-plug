@@ -7,7 +7,11 @@ Set up [**vim-plug**](https://github.com/junegunn/vim-plug) in a GitHub Actions 
 ```yaml
 - uses: porada/action-setup-vim-plug@v1
 - run: |
-    vim -c 'PlugStatus | quitall'
+    vim -e \
+      +'call plug#begin()' \
+      +'call plug#end()' \
+      +'PlugInstall --sync' \
+      +'qall!'
 ```
 
 This action doesn’t install Vim. Make sure it’s available beforehand:
