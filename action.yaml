@@ -4,6 +4,10 @@ author: Dom Porada
 description: >
   Download and install vim-plug in a GitHub Actions workflow
 
+branding:
+  color: gray-dark
+  icon: settings
+
 runs:
   using: composite
   steps:

@@ -1,3 +1,5 @@
+[![](https://img.shields.io/github/actions/workflow/status/porada/action-setup-vim-plug/test.yaml)](https://github.com/porada/action-setup-vim-plug/actions/workflows/test.yaml)
+
 # action-setup-vim-plug
 
 Set up [**vim-plug**](https://github.com/junegunn/vim-plug) in a GitHub Actions workflow.
@@ -9,6 +11,7 @@ Set up [**vim-plug**](https://github.com/junegunn/vim-plug) in a GitHub Actions 
 - run: |
     vim -e \
       +'call plug#begin()' \
+      +'Plug "tpope/vim-sensible"' \
       +'call plug#end()' \
       +'PlugInstall --sync' \
       +'qall!'
