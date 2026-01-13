@@ -19,4 +19,9 @@ jobs:
       - uses: rhysd/action-setup-vim@v1
       - uses: ./
       - run: vim --version
-      - run: vim -es +'PlugInstall --sync' +'qall!'
+      - run: |
+          vim -e \
+            +'call plug#begin()' \
+            +'call plug#end()' \
+            +'PlugInstall --sync' \
+            +'qall!'
