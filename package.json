@@ -1,6 +1,7 @@
 {
 	"name": "action-setup-vim-plug",
 	"private": true,
+	"version": "1.0.0",
 	"license": "MIT",
 	"author": {
 		"name": "Dom Porada",
