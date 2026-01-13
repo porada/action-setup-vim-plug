@@ -1,0 +1,29 @@
+{
+	"name": "action-setup-vim-plug",
+	"private": true,
+	"license": "MIT",
+	"author": {
+		"name": "Dom Porada",
+		"email": "dom@dom.engineering",
+		"url": "https://dom.engineering"
+	},
+	"type": "module",
+	"engines": {
+		"node": ">=24"
+	},
+	"packageManager": "pnpm@10.28.0",
+	"devDependencies": {
+		"@standard-config/prettier": "1.2.1",
+		"prettier": "3.7.4",
+		"simple-git-hooks": "2.13.1"
+	},
+	"scripts": {
+		"fix": "pnpm format",
+		"format": "prettier --write --ignore-unknown .",
+		"format:check": "prettier --check --ignore-unknown .",
+		"prepare": "simple-git-hooks"
+	},
+	"simple-git-hooks": {
+		"pre-commit": "pnpm run format:check"
+	}
+}
