@@ -19,14 +19,15 @@ jobs:
       - uses: actions/checkout@v6
       - run: brew install vim
       - uses: ./
+      - run: test -s "$HOME/.vim/autoload/plug.vim"
       - run: vim --version
       - run: |
-          vim -e \
+          vim -es \
             +'call plug#begin()' \
-            +'call writefile([v:errmsg], $RUNNER_TEMP . "/errmsg.txt")' \
+            +'call writefile([v:errmsg], $RUNNER_TEMP . "/log.txt")' \
             +'if v:errmsg != "" | cquit 1 | endif' \
             +'qall!'
-      - run: cat "$RUNNER_TEMP/errmsg.txt"
+      - run: cat "$RUNNER_TEMP/log.txt"
 
   test-autoload-dir:
     name: test / autoload-dir
@@ -37,11 +38,12 @@ jobs:
       - uses: ./
         with:
           autoload-dir: '$HOME/.local/share/nvim/site/autoload'
+      - run: test -s "$HOME/.local/share/nvim/site/autoload/plug.vim"
       - run: nvim --version
       - run: |
           nvim --headless \
             +'call plug#begin()' \
-            +'call writefile([v:errmsg], $RUNNER_TEMP . "/errmsg.txt")' \
+            +'call writefile([v:errmsg], $RUNNER_TEMP . "/log.txt")' \
             +'if v:errmsg != "" | cquit 1 | endif' \
             +'qall!'
-      - run: cat "$RUNNER_TEMP/errmsg.txt"
+      - run: cat "$RUNNER_TEMP/log.txt"
