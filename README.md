@@ -10,6 +10,7 @@ Set up [**vim-plug**](https://github.com/junegunn/vim-plug) in a GitHub Actions 
 - uses: porada/action-setup-vim-plug@v1
 - run: |
     vim -es \
+      +'set nocompatible' \
       +'set nomore' \
       +'call plug#begin()' \
       +'Plug "tpope/vim-sensible"' \
