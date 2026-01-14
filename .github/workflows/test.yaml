@@ -21,7 +21,7 @@ jobs:
       - uses: ./
       - run: vim --version
       - run: |
-          vim -es \
+          vim -es -V1"$RUNNER_TEMP/vim.log" \
             +'call plug#begin()' \
             +'call plug#end()' \
             +'if v:errmsg != "" | cquit 1 | endif' \
