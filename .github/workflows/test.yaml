@@ -13,6 +13,7 @@ permissions:
 
 jobs:
   test:
+    name: test / default
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
@@ -21,6 +22,25 @@ jobs:
       - run: vim --version
       - run: |
           vim -e \
+            +'call plug#begin()' \
+            +'call plug#end()' \
+            +'PlugInstall --sync' \
+            +'qall!'
+
+  test-autoload-dir:
+    name: test / autoload-dir
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: rhysd/action-setup-vim@v1
+        with:
+          neovim: true
+      - uses: ./
+        with:
+          autoload-dir: '$HOME/.local/share/nvim/site/autoload'
+      - run: nvim --version
+      - run: |
+          nvim -e \
             +'call plug#begin()' \
             +'call plug#end()' \
             +'PlugInstall --sync' \
