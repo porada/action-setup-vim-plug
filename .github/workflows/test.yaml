@@ -23,6 +23,7 @@ jobs:
       - run: |
           vim -e \
             +'call plug#begin()' \
+            +'Plug "tpope/vim-sensible"' \
             +'call plug#end()' \
             +'PlugInstall --sync' \
             +'qall!'
@@ -42,6 +43,7 @@ jobs:
       - run: |
           nvim -e \
             +'call plug#begin()' \
+            +'Plug "tpope/vim-sensible"' \
             +'call plug#end()' \
             +'PlugInstall --sync' \
             +'qall!'
