@@ -22,8 +22,8 @@ This action doesn’t install Vim. Make sure it’s available beforehand:
 ```yaml
 jobs:
   test:
-    runs-on: macos-latest
+    runs-on: ubuntu-latest
     steps:
-      - run: brew install vim
+      - uses: rhysd/action-setup-vim@v1
       - uses: porada/action-setup-vim-plug@v1
 ```

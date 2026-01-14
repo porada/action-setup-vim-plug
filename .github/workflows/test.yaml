@@ -14,10 +14,10 @@ permissions:
 jobs:
   test:
     name: test / default
-    runs-on: macos-latest
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
-      - run: brew install vim
+      - uses: rhysd/action-setup-vim@v1
       - uses: ./
       - run: test -s "$HOME/.vim/autoload/plug.vim"
       - run: vim --version
@@ -31,10 +31,12 @@ jobs:
 
   test-autoload-dir:
     name: test / autoload-dir
-    runs-on: macos-latest
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
-      - run: brew install neovim
+      - uses: rhysd/action-setup-vim@v1
+        with:
+          neovim: true
       - uses: ./
         with:
           autoload-dir: '$HOME/.local/share/nvim/site/autoload'
