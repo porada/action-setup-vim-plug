@@ -21,7 +21,7 @@ jobs:
       - uses: ./
       - run: vim --version
       - run: |
-          vim -es -V1"$RUNNER_TEMP/vim.log" \
+          vim -X -es -V1"$RUNNER_TEMP/vim.log" \
             +'set nocompatible' \
             +'set nomore' \
             +'call plug#begin()' \
