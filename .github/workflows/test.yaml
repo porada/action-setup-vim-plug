@@ -13,15 +13,39 @@ permissions:
 
 jobs:
   test:
+    name: test / default
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
       - uses: rhysd/action-setup-vim@v1
       - uses: ./
+      - run: test -s "$HOME/.vim/autoload/plug.vim"
       - run: vim --version
       - run: |
-          vim -e \
+          vim -es \
             +'call plug#begin()' \
-            +'call plug#end()' \
-            +'PlugInstall --sync' \
+            +'call writefile(v:errmsg ==# "" ? [] : [v:errmsg], $RUNNER_TEMP . "/log.txt")' \
             +'qall!'
+      - run: cat "$RUNNER_TEMP/log.txt"
+      - run: test ! -s "$RUNNER_TEMP/log.txt"
+
+  test-autoload-dir:
+    name: test / autoload-dir
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: rhysd/action-setup-vim@v1
+        with:
+          neovim: true
+      - uses: ./
+        with:
+          autoload-dir: '$HOME/.local/share/nvim/site/autoload'
+      - run: test -s "$HOME/.local/share/nvim/site/autoload/plug.vim"
+      - run: nvim --version
+      - run: |
+          nvim --headless \
+            +'call plug#begin()' \
+            +'call writefile(v:errmsg ==# "" ? [] : [v:errmsg], $RUNNER_TEMP . "/log.txt")' \
+            +'qall!'
+      - run: cat "$RUNNER_TEMP/log.txt"
+      - run: test ! -s "$RUNNER_TEMP/log.txt"

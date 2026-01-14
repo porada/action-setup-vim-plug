@@ -8,6 +8,13 @@ branding:
   color: gray-dark
   icon: settings
 
+inputs:
+  autoload-dir:
+    description: >
+      Installation directory for vim-plug
+    default: '$HOME/.vim/autoload'
+    required: false
+
 runs:
   using: composite
   steps:
@@ -17,6 +24,6 @@ runs:
         curl \
           --fail \
           --location \
-          --output "$HOME/.vim/autoload/plug.vim" \
+          --output "${{ inputs['autoload-dir'] }}/plug.vim" \
           --create-dirs \
           https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
