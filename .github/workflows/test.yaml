@@ -23,6 +23,7 @@ jobs:
       - run: |
           vim -n -V1"$RUNNER_TEMP/vim.log" \
             +'call plug#begin()' \
+            +'echo v:errmsg' \
             +'if v:errmsg != "" | cquit 1 | endif' \
             +'qall!'
       - run: cat "$RUNNER_TEMP/vim.log"
@@ -40,6 +41,7 @@ jobs:
       - run: |
           nvim --headless -V1"$RUNNER_TEMP/nvim.log" \
             +'call plug#begin()' \
+            +'echo v:errmsg' \
             +'if v:errmsg != "" | cquit 1 | endif' \
             +'qall!'
       - run: cat "$RUNNER_TEMP/nvim.log"
