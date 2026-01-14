@@ -21,8 +21,10 @@ jobs:
       - uses: ./
       - run: vim --version
       - run: |
-          vim -N -es -V1"$RUNNER_TEMP/vim.log" \
-            +'if !exists("*plug#begin") | cquit 1 | endif' \
+          vim -es \
+            +'call plug#begin()' \
+            +'call plug#end()' \
+            +'if v:errmsg != "" | cquit 1 | endif' \
             +'qall!'
       - run: cat "$RUNNER_TEMP/vim.log"
 
@@ -38,6 +40,8 @@ jobs:
       - run: nvim --version
       - run: |
           nvim --headless -V1"$RUNNER_TEMP/nvim.log" \
-            +'if !exists("*plug#begin") | cquit 1 | endif' \
+            +'call plug#begin()' \
+            +'call plug#end()' \
+            +'if v:errmsg != "" | cquit 1 | endif' \
             +'qall!'
       - run: cat "$RUNNER_TEMP/nvim.log"
