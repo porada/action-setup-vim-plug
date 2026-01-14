@@ -28,6 +28,7 @@ jobs:
             +'if v:errmsg != "" | cquit 1 | endif' \
             +'qall!'
       - run: cat "$RUNNER_TEMP/log.txt"
+      - run: test ! -s "$RUNNER_TEMP/log.txt"
 
   test-autoload-dir:
     name: test / autoload-dir
@@ -47,3 +48,4 @@ jobs:
             +'if v:errmsg != "" | cquit 1 | endif' \
             +'qall!'
       - run: cat "$RUNNER_TEMP/log.txt"
+      - run: test ! -s "$RUNNER_TEMP/log.txt"
