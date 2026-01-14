@@ -21,12 +21,14 @@ jobs:
       - uses: ./
       - run: vim --version
       - run: |
-          vim -e \
+          vim -es -V1"$RUNNER_TEMP/vim.log" \
+            +'set nomore' \
             +'call plug#begin()' \
             +'Plug "tpope/vim-sensible"' \
             +'call plug#end()' \
             +'PlugInstall --sync' \
             +'qall!'
+      - run: cat "$RUNNER_TEMP/vim.log"
 
   test-autoload-dir:
     name: test / autoload-dir
@@ -41,9 +43,11 @@ jobs:
           autoload-dir: '$HOME/.local/share/nvim/site/autoload'
       - run: nvim --version
       - run: |
-          nvim -e \
+          nvim --headless -V1"$RUNNER_TEMP/nvim.log" \
+            +'set nomore' \
             +'call plug#begin()' \
             +'Plug "tpope/vim-sensible"' \
             +'call plug#end()' \
             +'PlugInstall --sync' \
             +'qall!'
+      - run: cat "$RUNNER_TEMP/nvim.log"
