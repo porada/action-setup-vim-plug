@@ -1,7 +1,7 @@
 {
 	"name": "action-setup-vim-plug",
-	"private": true,
 	"version": "1.0.0",
+	"private": true,
 	"license": "MIT",
 	"author": {
 		"name": "Dom Porada",
@@ -14,7 +14,7 @@
 	},
 	"packageManager": "pnpm@10.28.0",
 	"devDependencies": {
-		"@standard-config/prettier": "1.2.1",
+		"@standard-config/prettier": "1.3.0",
 		"prettier": "3.7.4",
 		"simple-git-hooks": "2.13.1"
 	},
