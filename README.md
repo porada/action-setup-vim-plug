@@ -13,7 +13,7 @@ Set up [**vim-plug**](https://github.com/junegunn/vim-plug) in a GitHub Actions 
       +'set nocompatible' \
       +'set nomore' \
       +'call plug#begin()' \
-      +'Plug "tpope/vim-sensible"' \
+      +"Plug 'tpope/vim-sensible'" \
       +'call plug#end()' \
       +'PlugInstall --sync' \
       +'qall!'
