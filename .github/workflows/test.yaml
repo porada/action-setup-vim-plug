@@ -21,12 +21,12 @@ jobs:
       - uses: ./
       - run: vim --version
       - run: |
-          vim -n -V1"$RUNNER_TEMP/vim.log" \
+          vim -n \
             +'call plug#begin()' \
-            +'echo v:errmsg' \
+            +'call writefile([v:errmsg], $RUNNER_TEMP . "/errmsg.txt")' \
             +'if v:errmsg != "" | cquit 1 | endif' \
             +'qall!'
-      - run: cat "$RUNNER_TEMP/vim.log"
+      - run: cat "$RUNNER_TEMP/errmsg.txt"
 
   test-autoload-dir:
     name: test / autoload-dir
@@ -39,9 +39,9 @@ jobs:
           autoload-dir: '$HOME/.local/share/nvim/site/autoload'
       - run: nvim --version
       - run: |
-          nvim --headless -V1"$RUNNER_TEMP/nvim.log" \
+          nvim --headless \
             +'call plug#begin()' \
-            +'echo v:errmsg' \
+            +'call writefile([v:errmsg], $RUNNER_TEMP . "/errmsg.txt")' \
             +'if v:errmsg != "" | cquit 1 | endif' \
             +'qall!'
-      - run: cat "$RUNNER_TEMP/nvim.log"
+      - run: cat "$RUNNER_TEMP/errmsg.txt"
