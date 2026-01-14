@@ -21,7 +21,7 @@ jobs:
       - uses: ./
       - run: vim --version
       - run: |
-          vim -es -V1"$RUNNER_TEMP/vim.log" \
+          vim -N -es -V1"$RUNNER_TEMP/vim.log" \
             +'if !exists("*plug#begin") | cquit 1 | endif' \
             +'qall!'
       - run: cat "$RUNNER_TEMP/vim.log"
