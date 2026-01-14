@@ -9,7 +9,7 @@ Set up [**vim-plug**](https://github.com/junegunn/vim-plug) in a GitHub Actions 
 ```yaml
 - uses: porada/action-setup-vim-plug@v1
 - run: |
-    vim -n \
+    vim -e \
       +'call plug#begin()' \
       +"Plug 'tpope/vim-sensible'" \
       +'call plug#end()' \

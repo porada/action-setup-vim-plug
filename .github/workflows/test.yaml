@@ -21,7 +21,7 @@ jobs:
       - uses: ./
       - run: vim --version
       - run: |
-          vim -n \
+          vim -e \
             +'call plug#begin()' \
             +'call writefile([v:errmsg], $RUNNER_TEMP . "/errmsg.txt")' \
             +'if v:errmsg != "" | cquit 1 | endif' \
