@@ -21,11 +21,8 @@ jobs:
       - uses: ./
       - run: vim --version
       - run: |
-          vim -e -V1"$RUNNER_TEMP/vim.log" \
-            +'call plug#begin()' \
-            +"Plug 'tpope/vim-sensible'" \
-            +'call plug#end()' \
-            +'PlugInstall --sync' \
+          vim -es -V1"$RUNNER_TEMP/vim.log" \
+            +'if !exists("*plug#begin") | cquit 1 | endif' \
             +'qall!'
       - run: cat "$RUNNER_TEMP/vim.log"
 
@@ -41,10 +38,6 @@ jobs:
       - run: nvim --version
       - run: |
           nvim --headless -V1"$RUNNER_TEMP/nvim.log" \
-            +'set nomore' \
-            +'call plug#begin()' \
-            +"Plug 'tpope/vim-sensible'" \
-            +'call plug#end()' \
-            +'PlugInstall --sync' \
+            +'if !exists("*plug#begin") | cquit 1 | endif' \
             +'qall!'
       - run: cat "$RUNNER_TEMP/nvim.log"
