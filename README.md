@@ -1,4 +1,4 @@
-[![](https://img.shields.io/badge/action-v1-informational)](https://github.com/porada/action-setup-vim-plug/tree/v1)
+[![](https://img.shields.io/badge/action-v1-informational)](https://github.com/porada/action-setup-vim-plug)
 [![](https://img.shields.io/github/actions/workflow/status/porada/action-setup-vim-plug/test.yaml)](https://github.com/porada/action-setup-vim-plug/actions/workflows/test.yaml)
 
 # action-setup-vim-plug
@@ -33,9 +33,9 @@ jobs:
 ```
 
 > [!CAUTION]
-> Most `Plug*` commands rely on Vim’s GUI features and may fail in CI unless a headless build is used.
+> Most `Plug*` commands rely on Vim’s GUI features and may fail in CI unless a headless Vim build is used.
 
-## Supported Inputs
+## Inputs
 
 ### autoload-dir
 
