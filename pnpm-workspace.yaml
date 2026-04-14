@@ -1,6 +1,15 @@
+allowBuilds:
+  simple-git-hooks: true
+
 autoInstallPeers: false
 
-onlyBuiltDependencies:
-  - simple-git-hooks
+blockExoticSubdeps: true
+
+overrides:
+  '@prettier/plugin-oxc>oxc-parser': ^0.125.0
+
+strictDepBuilds: true
 
 strictPeerDependencies: true
+
+trustPolicy: no-downgrade
