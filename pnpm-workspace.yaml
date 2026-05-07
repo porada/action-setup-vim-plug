@@ -3,12 +3,8 @@ allowBuilds:
 
 autoInstallPeers: false
 
-blockExoticSubdeps: true
-
-overrides:
-  '@prettier/plugin-oxc>oxc-parser': ^0.125.0
-
-strictDepBuilds: true
+minimumReleaseAgeExclude:
+  - '@standard-config/*'
 
 strictPeerDependencies: true
 
