@@ -3,9 +3,6 @@ allowBuilds:
 
 autoInstallPeers: false
 
-minimumReleaseAgeExclude:
-  - '@standard-config/*'
-
 strictPeerDependencies: true
 
 trustPolicy: no-downgrade
