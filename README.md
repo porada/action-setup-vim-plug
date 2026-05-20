@@ -1,4 +1,4 @@
-[![](https://img.shields.io/badge/action-v1-informational)](https://github.com/porada/action-setup-vim-plug) [![](https://img.shields.io/github/actions/workflow/status/porada/action-setup-vim-plug/test.yaml)](https://github.com/porada/action-setup-vim-plug/actions/workflows/test.yaml)
+[![](https://img.shields.io/badge/action-v1-informational?style=flat-square)](https://github.com/porada/action-setup-vim-plug) [![](https://img.shields.io/github/actions/workflow/status/porada/action-setup-vim-plug/test.yaml?style=flat-square)](https://github.com/porada/action-setup-vim-plug/actions/workflows/test.yaml)
 
 # action-setup-vim-plug
 
