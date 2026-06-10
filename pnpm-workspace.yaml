@@ -3,6 +3,13 @@ allowBuilds:
 
 autoInstallPeers: false
 
+color: always
+
+gitChecks: false
+
+overrides:
+  '@prettier/plugin-oxc': '-'
+
 strictPeerDependencies: true
 
 trustPolicy: no-downgrade
