@@ -16,7 +16,7 @@ jobs:
     name: test / default
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v6.0.3
+      - uses: actions/checkout@v7.0.0
         with:
           persist-credentials: false
       - uses: rhysd/action-setup-vim@v1.6.1
@@ -35,7 +35,7 @@ jobs:
     name: test / autoload-dir
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v6.0.3
+      - uses: actions/checkout@v7.0.0
         with:
           persist-credentials: false
       - uses: rhysd/action-setup-vim@v1.6.1
